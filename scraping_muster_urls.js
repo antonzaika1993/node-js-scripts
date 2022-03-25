@@ -1,4 +1,4 @@
-// noinspection DuplicatedCode
+// noinspection DuplicatedCode,JSIgnoredPromiseFromCall
 
 const puppeteer = require("puppeteer-extra");
 const axios = require('axios')
@@ -64,7 +64,6 @@ function check_axios(pub) {
                 let bad_status = 404
                 if (e.response) {
                     if (e.response.status) {
-                        console.log('http status = ', e.response.status)
                         bad_status = e.response.status
                     }
                 }
@@ -116,7 +115,7 @@ function StartScraping() {
                 } else {
                     // pass
                 }
-                if (i > 4) {
+                if (i > 0) {
                     break
                 }
             }
@@ -166,7 +165,6 @@ async function main() {
     }
     // insertUrls(conn, table_urls, master_urls_to_insert)
     // await updatePublishers()
-    console.log('*** MAIN END ***')
 }
 
-let start = main()
+main()
