@@ -85,11 +85,11 @@ function StartScraping() {
     return new Promise(async (resolve, reject) => {
         try {
             pup_obj = puppeteer.launch(
-            //     {
-            //     "headless": true,
-            //     // "args": ["--fast-start", "--disable-extensions", "--no-sandbox"],
-            //     "ignoreHTTPSErrors": true
-            // }
+                {
+                    "headless": true,
+                    "args": ["--fast-start", "--disable-extensions", "--no-sandbox"],
+                    "ignoreHTTPSErrors": true
+                }
             )
         } catch (e) {
             reject(e)
@@ -149,6 +149,7 @@ const updatePublishers = async _ => {
 }
 
 async function main() {
+    console.log('*** Start')
     try {
         publishers = await connectToMySql() // list of objects
         console.log('*** Success getting publishers.\nLength of publishers = ', publishers.length)
